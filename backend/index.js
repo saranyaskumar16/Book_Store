@@ -13,13 +13,13 @@ app.use(express.json());
 // app.use(cors());
 
 // cors middlewear method1
-// app.use(
-//    cors({
-//       origin: 'https://localhost:3000',
-//       methods:['GET','POST','PUT','DELETE'],
-//       allowedHeaders:['Cpntent-Type'],
-//    })
-// );
+app.use(
+   cors({
+      origin: 'http://localhost:5173',
+      methods:['GET','POST','PUT','DELETE'],
+      allowedHeaders:['Content-Type'],
+   })
+);
 
 app.get('/',(request,response)=>{
      console.log(request);

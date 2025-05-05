@@ -1,5 +1,7 @@
 import express from 'express';
 import { Book } from '../models/bookModel.js';
+import mongoose from 'mongoose';
+
 
 const router = express.Router();
 
@@ -78,7 +80,7 @@ router.put('/:id', async (request,response) => {
       const{ id }= request.params;
 
       const result = await Book.findByIdAndUpdate(id, request.body);
-      if (!result) {
+      if (result==null) {
          return response.status(404).json({message:'Book not found'});
       }
       return response.status(200).send({message:'Book Updated Successfully'});
@@ -94,11 +96,19 @@ router.put('/:id', async (request,response) => {
 
 router.delete('/:id',async (request,response) => {
    try {
+
+      
       const {id}=request.params;
+
+      if (!mongoose.Types.ObjectId.isValid(id)) {
+         return response.status(400).json({ error: 'Invalid ID format' });
+       }
 
       const result = await Book.findByIdAndDelete(id);
 
-      if(!result){
+      
+      
+      if(result==null){
          return response.status(404).json({message:'Book not found'});
       }
       return response.status(200).send({message:'Book deleted Successfully'});
