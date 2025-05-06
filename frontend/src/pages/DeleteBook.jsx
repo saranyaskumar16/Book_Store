@@ -42,12 +42,12 @@ const DeleteBook = () => {
         >
           Yes, Delete it
         </button>
-        {/* <button
-          className='p-4 bg-red-600 text-white m-8 w-full'
-          onClick={handleDeleteBook}
+        <button
+          className='p-4 bg-gray-400 text-white w-full'
+          onClick={() => navigate(-1)}
         >
-        No! Go Back
-        </button> */}
+          Go Back
+        </button>
       </div>
     </div>
   )

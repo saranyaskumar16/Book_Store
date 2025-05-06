@@ -22,6 +22,8 @@ router.post('/',async(request,response)=>{
          author: request.body.author,
          publishYear: request.body.publishYear,
       }
+      console.log(newBook,"newBook");
+      
       const book = await Book.create(newBook);
 
       return response.status(201).send(book);
@@ -36,10 +38,11 @@ router.post('/',async(request,response)=>{
 router.get('/', async (request,response) => {
    try {
       const books = await Book.find({})
-
+      console.log(books,"books");
+      
       return response.status(200).json({
           count: books.length,
-          data: books
+          data: books,
       });
    } catch (error) {
       console.log(error.message);
