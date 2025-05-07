@@ -30,7 +30,7 @@ const Home = () => {
   return (
     <div className='p-4'>
          <div className='flex justify-between items-center text-blue-900 '>
-         <h1 className='text-3xl my-8'>Litery Nest</h1>
+         <h1 className='text-3xl my-8'>Literary Nest</h1>
          </div>
       <div className='flex justify-center items-center gap-x-4'>
         <button
